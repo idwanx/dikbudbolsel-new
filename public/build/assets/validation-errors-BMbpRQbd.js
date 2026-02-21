@@ -1,0 +1,1 @@
+import{c as l,j as r}from"./app-BmjE4qHc.js";function m(i){const e=l.c(2),{errors:t}=i;let s;return e[0]!==t?(s=Object.keys(t).length>0&&r.jsx(r.Fragment,{children:r.jsx("ul",{className:"mt-1 pl-4 list-disc list-outside text-sm text-red-600",children:Object.keys(t).map(function(n,c){return r.jsx("li",{children:t[n]},c)})})}),e[0]=t,e[1]=s):s=e[1],s}export{m as V};
