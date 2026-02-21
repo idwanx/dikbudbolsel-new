@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults, validateParameters } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 export const penerima = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ penerima.definition = {
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 penerima.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ penerima.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 penerima.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ penerima.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 penerima.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ penerima.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 const penerimaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const penerimaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 penerimaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ penerimaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\FetchDataController::penerima
-* @see app/Http/Controllers/FetchDataController.php:33
+* @see app/Http/Controllers/FetchDataController.php:40
 * @route '/fetch-data/penerima'
 */
 penerimaForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ penerima.form = penerimaForm
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 export const rkas = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ rkas.definition = {
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 rkas.url = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions) => {
@@ -128,7 +128,7 @@ rkas.url = (args?: { tahun?: string | number, sumberdana?: string | number } | [
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 rkas.get = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -138,7 +138,7 @@ rkas.get = (args?: { tahun?: string | number, sumberdana?: string | number } | [
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 rkas.head = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -148,7 +148,7 @@ rkas.head = (args?: { tahun?: string | number, sumberdana?: string | number } | 
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 const rkasForm = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -158,7 +158,7 @@ const rkasForm = (args?: { tahun?: string | number, sumberdana?: string | number
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 rkasForm.get = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -168,7 +168,7 @@ rkasForm.get = (args?: { tahun?: string | number, sumberdana?: string | number }
 
 /**
 * @see \App\Http\Controllers\FetchDataController::rkas
-* @see app/Http/Controllers/FetchDataController.php:44
+* @see app/Http/Controllers/FetchDataController.php:55
 * @route '/fetch-data/rkas/{tahun?}/{sumberdana?}'
 */
 rkasForm.head = (args?: { tahun?: string | number, sumberdana?: string | number } | [tahun: string | number, sumberdana: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -185,7 +185,7 @@ rkas.form = rkasForm
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 export const sekolah = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -200,7 +200,7 @@ sekolah.definition = {
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 sekolah.url = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions) => {
@@ -237,7 +237,7 @@ sekolah.url = (args?: { jenjang?: string | { slug: string } } | [jenjang: string
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 sekolah.get = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -247,7 +247,7 @@ sekolah.get = (args?: { jenjang?: string | { slug: string } } | [jenjang: string
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 sekolah.head = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -257,7 +257,7 @@ sekolah.head = (args?: { jenjang?: string | { slug: string } } | [jenjang: strin
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 const sekolahForm = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -267,7 +267,7 @@ const sekolahForm = (args?: { jenjang?: string | { slug: string } } | [jenjang: 
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 sekolahForm.get = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -277,7 +277,7 @@ sekolahForm.get = (args?: { jenjang?: string | { slug: string } } | [jenjang: st
 
 /**
 * @see \App\Http\Controllers\FetchDataController::sekolah
-* @see app/Http/Controllers/FetchDataController.php:23
+* @see app/Http/Controllers/FetchDataController.php:26
 * @route '/fetch-data/sekolah/{jenjang?}'
 */
 sekolahForm.head = (args?: { jenjang?: string | { slug: string } } | [jenjang: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -292,10 +292,110 @@ sekolahForm.head = (args?: { jenjang?: string | { slug: string } } | [jenjang: s
 
 sekolah.form = sekolahForm
 
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+export const rincianPengajuan = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: rincianPengajuan.url(args, options),
+    method: 'get',
+})
+
+rincianPengajuan.definition = {
+    methods: ["get","head"],
+    url: '/fetch-data/rincian-pengajuan/{nomor}',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+rincianPengajuan.url = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { nomor: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            nomor: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        nomor: args.nomor,
+    }
+
+    return rincianPengajuan.definition.url
+            .replace('{nomor}', parsedArgs.nomor.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+rincianPengajuan.get = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: rincianPengajuan.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+rincianPengajuan.head = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: rincianPengajuan.url(args, options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+const rincianPengajuanForm = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: rincianPengajuan.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+rincianPengajuanForm.get = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: rincianPengajuan.url(args, options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\FetchDataController::rincianPengajuan
+* @see app/Http/Controllers/FetchDataController.php:98
+* @route '/fetch-data/rincian-pengajuan/{nomor}'
+*/
+rincianPengajuanForm.head = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: rincianPengajuan.url(args, {
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+rincianPengajuan.form = rincianPengajuanForm
+
 const fetchData = {
     penerima: Object.assign(penerima, penerima),
     rkas: Object.assign(rkas, rkas),
     sekolah: Object.assign(sekolah, sekolah),
+    rincianPengajuan: Object.assign(rincianPengajuan, rincianPengajuan),
 }
 
 export default fetchData

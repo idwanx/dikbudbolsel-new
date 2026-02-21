@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sekolah
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:20
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:18
 * @route '/import-data/sekolah'
 */
 export const sekolah = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ sekolah.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sekolah
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:20
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:18
 * @route '/import-data/sekolah'
 */
 sekolah.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ sekolah.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sekolah
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:20
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:18
 * @route '/import-data/sekolah'
 */
 sekolah.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ sekolah.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sekolah
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:20
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:18
 * @route '/import-data/sekolah'
 */
 const sekolahForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const sekolahForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sekolah
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:20
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:18
 * @route '/import-data/sekolah'
 */
 sekolahForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -57,7 +57,7 @@ sekolah.form = sekolahForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:39
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:37
 * @route '/import-data/program'
 */
 export const program = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -72,7 +72,7 @@ program.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:39
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:37
 * @route '/import-data/program'
 */
 program.url = (options?: RouteQueryOptions) => {
@@ -81,7 +81,7 @@ program.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:39
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:37
 * @route '/import-data/program'
 */
 program.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -91,7 +91,7 @@ program.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:39
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:37
 * @route '/import-data/program'
 */
 const programForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -101,7 +101,7 @@ const programForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:39
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:37
 * @route '/import-data/program'
 */
 programForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -113,7 +113,7 @@ program.form = programForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sub_program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:49
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:47
 * @route '/import-data/sub-program'
 */
 export const sub_program = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -128,7 +128,7 @@ sub_program.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sub_program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:49
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:47
 * @route '/import-data/sub-program'
 */
 sub_program.url = (options?: RouteQueryOptions) => {
@@ -137,7 +137,7 @@ sub_program.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sub_program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:49
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:47
 * @route '/import-data/sub-program'
 */
 sub_program.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -147,7 +147,7 @@ sub_program.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sub_program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:49
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:47
 * @route '/import-data/sub-program'
 */
 const sub_programForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -157,7 +157,7 @@ const sub_programForm = (options?: RouteQueryOptions): RouteFormDefinition<'post
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::sub_program
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:49
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:47
 * @route '/import-data/sub-program'
 */
 sub_programForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -169,7 +169,7 @@ sub_program.form = sub_programForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::kegiatans
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:71
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:69
 * @route '/import-data/kegiatan'
 */
 export const kegiatans = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -184,7 +184,7 @@ kegiatans.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::kegiatans
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:71
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:69
 * @route '/import-data/kegiatan'
 */
 kegiatans.url = (options?: RouteQueryOptions) => {
@@ -193,7 +193,7 @@ kegiatans.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::kegiatans
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:71
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:69
 * @route '/import-data/kegiatan'
 */
 kegiatans.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -203,7 +203,7 @@ kegiatans.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::kegiatans
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:71
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:69
 * @route '/import-data/kegiatan'
 */
 const kegiatansForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -213,7 +213,7 @@ const kegiatansForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'>
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::kegiatans
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:71
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:69
 * @route '/import-data/kegiatan'
 */
 kegiatansForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -225,7 +225,7 @@ kegiatans.form = kegiatansForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::rincian_belanja
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:92
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:90
 * @route '/import-data/rincian-belanja'
 */
 export const rincian_belanja = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -240,7 +240,7 @@ rincian_belanja.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::rincian_belanja
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:92
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:90
 * @route '/import-data/rincian-belanja'
 */
 rincian_belanja.url = (options?: RouteQueryOptions) => {
@@ -249,7 +249,7 @@ rincian_belanja.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::rincian_belanja
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:92
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:90
 * @route '/import-data/rincian-belanja'
 */
 rincian_belanja.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -259,7 +259,7 @@ rincian_belanja.post = (options?: RouteQueryOptions): RouteDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::rincian_belanja
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:92
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:90
 * @route '/import-data/rincian-belanja'
 */
 const rincian_belanjaForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -269,7 +269,7 @@ const rincian_belanjaForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 
 /**
 * @see \App\Http\Controllers\DataPendukung\ImportDataController::rincian_belanja
-* @see app/Http/Controllers/DataPendukung/ImportDataController.php:92
+* @see app/Http/Controllers/DataPendukung/ImportDataController.php:90
 * @route '/import-data/rincian-belanja'
 */
 rincian_belanjaForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Bos\FetchRincianPengajuanResource;
+use App\Http\Resources\Bos\RincianPengajuanResource;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Builder;
 use App\Models\Jenjang;
 use App\Models\Penerima;
 use App\Models\Sekolah;
 use App\Models\SubJenisTransaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Gate;
 
 class FetchDataController extends Controller
 {
@@ -22,6 +25,10 @@ class FetchDataController extends Controller
 
     public function getSekolah(Jenjang $jenjang)
     {
+        if(Gate::denies('isTimDinas')) {
+            abort(404);
+        }
+
         $sekolahs = Sekolah::where('jenjang_id', $jenjang->id)
         ->orderBy('nama_sekolah', 'asc')->get(['npsn', 'nama_sekolah']);
 
@@ -32,7 +39,11 @@ class FetchDataController extends Controller
 
     public function getPenerima()
     {
-         $penerimas = Penerima::select('id', 'nama_penerima', 'alamat', 'no_rekening', 'nama_bank', 'npwp')
+        if(Gate::denies('isKepsekBendahara')) {
+            abort(404);
+        }
+
+        $penerimas = Penerima::select('id', 'nama_penerima', 'alamat', 'no_rekening', 'nama_bank', 'npwp')
             ->where('sekolah_id', $this->roleuser->sekolah_id)
             ->orderBy('sekolah_id', 'desc');
 
@@ -43,6 +54,10 @@ class FetchDataController extends Controller
 
     public function getRkas(Request $request)
     {
+        if(Gate::denies('isTimBos')) {
+            abort(404);
+        }
+        
         switch ($request->sumberdana) {
             case 'bosp-reguler': 
                 $sumberDana = 1;
@@ -77,6 +92,32 @@ class FetchDataController extends Controller
             'rkas' => $rkas,
             'penerimas' => Penerima::select('id', 'nama_penerima', 'no_rekening', 'nama_bank')->where('sekolah_id', $this->roleuser->sekolah_id)->orderBy('nama_penerima', 'asc')->get(),
             'pajaks' => SubJenisTransaksi::select('id', 'sub_jenis_transaksi', 'nilai')->where('jenis_transaksi_id', 2)->get(),
+        ]);
+    }
+
+    public function getRincianPengajuan(Request $request)
+    {
+        if(Gate::denies('isTimBos')) {
+            abort(404);
+        }
+
+        $dinas = ($this->roleuser->slug === "admin" || $this->roleuser->slug === "approval" || $this->roleuser->slug === "checker");
+
+        $rincians = DB::table('transaksis')->select('transaksis.id', 'transaksis.uraian', 
+                    'transaksis.nominal', 'transaksis.rka_id', 'transaksis.status', 'transaksis.created_at', 
+                    'pengajuans.no_pengajuan', 'pengajuans.send_at', 
+                    'penerimas.alamat', 'penerimas.nama_penerima', 'penerimas.nama_bank', 'penerimas.no_rekening')
+                    ->leftJoin('pengajuans', 'transaksis.pengajuan_id', '=', 'pengajuans.id')
+                    ->leftJoin('penerimas', 'transaksis.penerima_id', '=', 'penerimas.id')
+                    ->when($dinas, function (Builder $query) use ($request) {
+                        $query->where('transaksis.rka_id', $request->nomor);
+                    }, function (Builder $query)  use ($request) {
+                        $query->where('transaksis.sekolah_id', $this->roleuser->sekolah_id)->where('transaksis.rka_id', $request->nomor);
+                    })
+                    ->get();
+
+        return response()->json([
+            'rincians' => FetchRincianPengajuanResource::collection($rincians),
         ]);
     }
 }

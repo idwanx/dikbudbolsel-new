@@ -67,10 +67,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Pagu
     Route::get('bos/{tahun?}/pagu/{jenjangs?}/{sumberdana?}', [PaguController::class, 'index'])->name('bos.pagu.index');
     Route::post('import-data/pagu', [PaguController::class, 'import'])->name('bos.pagu.import');
-
+    // Detch Data
     Route::get('fetch-data/penerima', [FetchDataController::class, 'getPenerima'])->name('fetchData.penerima');
     Route::get('fetch-data/rkas/{tahun?}/{sumberdana?}', [FetchDataController::class, 'getRkas'])->name('fetchData.rkas');
     Route::get('fetch-data/sekolah/{jenjang:slug?}', [FetchDataController::class, 'getSekolah'])->name('fetchData.sekolah');
+
+
+    Route::get('fetch-data/rincian-pengajuan/{nomor}', [FetchDataController::class, 'getRincianPengajuan'])->name('fetchData.rincianPengajuan');
     
 });
 

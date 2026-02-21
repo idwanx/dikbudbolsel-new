@@ -19,7 +19,7 @@ import { NavJenjang } from './nav-jenjang';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Rkas',
-        href: dashboard().url,
+        href: "#",
     },
 ];
 

@@ -33,7 +33,7 @@ class TransaksiObserver
      */
     public function updated(Transaksi $transaksi): void
     {
-        Log::info("Perubahan status rincian transaksi " . $transaksi);
+        // Log::info("Perubahan status rincian transaksi " . $transaksi);
     }
 
     /**

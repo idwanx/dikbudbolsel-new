@@ -106,6 +106,10 @@ class TransaksiController extends Controller
 
     public function validasi_transaksi(Request $request): RedirectResponse
     {
+        if(Gate::denies('isTimDinas')) {
+            abort(404);
+        }
+
         $findPengajuan = Pengajuan::select('id', 'validated_at')->where('slug', $request->nomor)->firstOrFail();
         
         $findPengajuan->update([
@@ -113,18 +117,18 @@ class TransaksiController extends Controller
             'status' => 'divalidasi',
         ]);
 
-        // foreach ($request->data as $item) {
-        //     DB::table('transaksis')->select('transaksis.*')
-        //         ->where('id', $item)
-        //         ->update([
-        //             'status' => 'divalidasi'
-        //         ]);
-        // }
+        foreach ($request->data as $item) {
+            DB::table('transaksis')
+                ->where('id', $item)
+                ->update([
+                    'status' => 'divalidasi'
+                ]);
+        }
 
-        $transaksis = Transaksi::where('pengajuan_id', $findPengajuan->id)
-        ->chunkById(200, function (Collection $transaksis) {
-            $transaksis->each->update(['status' => 'divalidasi']);
-        }, column: 'id');
+        // $transaksis = Transaksi::where('pengajuan_id', $findPengajuan->id)
+        // ->chunkById(200, function (Collection $transaksis) {
+        //     $transaksis->each->update(['status' => 'divalidasi']);
+        // }, column: 'id');
 
         // $findPengajuan->transaksis()->update([
         //     'status' => 'divalidasi',
@@ -133,7 +137,6 @@ class TransaksiController extends Controller
         Inertia::flash([
             'status' => 'success',
             'message' => 'Rincian pengajuan berhasil divalidasi.',
-            'rincians' => $transaksis,
         ]);
             
         return back();
@@ -141,6 +144,10 @@ class TransaksiController extends Controller
 
     public function destroy_transaksi(Transaksi $transaksi): RedirectResponse
     {
+        if(Gate::denies('canAkses', $transaksi)) {
+            abort(404);
+        }
+
         if(Gate::denies('canAkses', $transaksi)) {
             abort(404);
         }

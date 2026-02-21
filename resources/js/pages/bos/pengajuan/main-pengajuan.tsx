@@ -8,7 +8,6 @@ import { SidebarSekolah } from './sidebar-sekolah';
 import { SidebarPengajuan } from './sidebar-pengajuan';
 import { ReactNode } from 'react';
 
-
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Pengajuan',

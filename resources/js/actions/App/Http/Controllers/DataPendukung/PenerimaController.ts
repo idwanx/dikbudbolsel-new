@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::index
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:29
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:30
 * @route '/data-pendukung/penerima'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::store
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:57
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:62
 * @route '/data-pendukung/penerima'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,7 +97,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::store
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:57
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:62
 * @route '/data-pendukung/penerima'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::store
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:57
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:62
 * @route '/data-pendukung/penerima'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +116,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::store
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:57
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:62
 * @route '/data-pendukung/penerima'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +126,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::store
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:57
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:62
 * @route '/data-pendukung/penerima'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -138,7 +138,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 export const update = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -153,7 +153,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 update.url = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -186,7 +186,7 @@ update.url = (args: { penerima: number | { id: number } } | [penerima: number | 
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 update.put = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -196,7 +196,7 @@ update.put = (args: { penerima: number | { id: number } } | [penerima: number | 
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 update.patch = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -206,7 +206,7 @@ update.patch = (args: { penerima: number | { id: number } } | [penerima: number 
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 const updateForm = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -221,7 +221,7 @@ const updateForm = (args: { penerima: number | { id: number } } | [penerima: num
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 updateForm.put = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -236,7 +236,7 @@ updateForm.put = (args: { penerima: number | { id: number } } | [penerima: numbe
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::update
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:102
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:110
 * @route '/data-pendukung/penerima/{penerima}'
 */
 updateForm.patch = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -253,7 +253,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::destroy
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:129
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:141
 * @route '/data-pendukung/penerima/{penerima}'
 */
 export const destroy = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -268,7 +268,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::destroy
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:129
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:141
 * @route '/data-pendukung/penerima/{penerima}'
 */
 destroy.url = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -301,7 +301,7 @@ destroy.url = (args: { penerima: number | { id: number } } | [penerima: number |
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::destroy
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:129
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:141
 * @route '/data-pendukung/penerima/{penerima}'
 */
 destroy.delete = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -311,7 +311,7 @@ destroy.delete = (args: { penerima: number | { id: number } } | [penerima: numbe
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::destroy
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:129
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:141
 * @route '/data-pendukung/penerima/{penerima}'
 */
 const destroyForm = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -326,7 +326,7 @@ const destroyForm = (args: { penerima: number | { id: number } } | [penerima: nu
 
 /**
 * @see \App\Http\Controllers\DataPendukung\PenerimaController::destroy
-* @see app/Http/Controllers/DataPendukung/PenerimaController.php:129
+* @see app/Http/Controllers/DataPendukung/PenerimaController.php:141
 * @route '/data-pendukung/penerima/{penerima}'
 */
 destroyForm.delete = (args: { penerima: number | { id: number } } | [penerima: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

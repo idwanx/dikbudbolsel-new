@@ -31,13 +31,12 @@ export function TabsMenu() {
         { 
             title: "Bos Reguler", 
             href: bos.rkas.detailRincian({ tahun: tahun, jenjangs: jenjangs ? jenjangs : '', npsn: npsn ? npsn : '', sumberdana: npsn ? 'bosp-reguler' : ''}),
-            isActive: sumberdana === 'bosp-reguler'
-
+            isActive: sumberdana === 'bosp-reguler',
         },
         { 
             title: "Bos Kinerja", 
             href: bos.rkas.detailRincian({ tahun: tahun, jenjangs: jenjangs ? jenjangs : '', npsn: npsn ? npsn : '', sumberdana: npsn ? 'bosp-kinerja' : ''}),
-            isActive: sumberdana === 'bosp-kinerja'
+            isActive: sumberdana === 'bosp-kinerja',
         },
       ];
     } else {
@@ -46,7 +45,6 @@ export function TabsMenu() {
             title: "Bos Reguler", 
             href: bos.rkas.detailRekapitulasi({ tahun: tahun, jenjangs: jenjangs ? jenjangs : '', sumberdana: jenjangs ? 'bosp-reguler' : ''}),
             isActive: sumberdana === 'bosp-reguler'
-
         },
         { 
             title: "Bos Kinerja", 

@@ -160,7 +160,7 @@ store_transaksi.form = store_transaksiForm
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:142
+* @see app/Http/Controllers/Bos/TransaksiController.php:145
 * @route '/transaksi/destroy/{transaksi}'
 */
 export const destroy_transaksi = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -175,7 +175,7 @@ destroy_transaksi.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:142
+* @see app/Http/Controllers/Bos/TransaksiController.php:145
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksi.url = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -208,7 +208,7 @@ destroy_transaksi.url = (args: { transaksi: number | { id: number } } | [transak
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:142
+* @see app/Http/Controllers/Bos/TransaksiController.php:145
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksi.delete = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -218,7 +218,7 @@ destroy_transaksi.delete = (args: { transaksi: number | { id: number } } | [tran
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:142
+* @see app/Http/Controllers/Bos/TransaksiController.php:145
 * @route '/transaksi/destroy/{transaksi}'
 */
 const destroy_transaksiForm = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -233,7 +233,7 @@ const destroy_transaksiForm = (args: { transaksi: number | { id: number } } | [t
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:142
+* @see app/Http/Controllers/Bos/TransaksiController.php:145
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksiForm.delete = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

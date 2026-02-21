@@ -1,7 +1,7 @@
 import AppLayout from '@/layouts/app-layout';
 import LayoutBos from '../layout-bos';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { InfoIcon } from "lucide-react"
+import { InfoIcon, ShoppingCart } from "lucide-react"
 import {
   Table,
   TableBody,
@@ -13,6 +13,10 @@ import {
 import { EmptyPage } from './empty-page';
 import MainRkas from './main-rkas';
 import { Auth } from '@/types';
+import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { useState } from 'react';
+import { DialogPengajuan } from './dialog-pengajuan';
 
 type Props = {
     auth: Auth;
@@ -30,7 +34,6 @@ type Sekolah = {
     nama_sekolah: string;
     jumlah: number;
 };
-
 
 type Rkas = {
     id: number;
@@ -54,7 +57,7 @@ type Rkas = {
     uraian_sub_program: string;
 };
 
-interface FieldPenerima {
+type FieldPenerima = {
     id: number;
     nama_penerima: string;
     no_rekening: string;
@@ -62,7 +65,7 @@ interface FieldPenerima {
 }
 
 
-interface FieldPajak {
+type FieldPajak = {
     id: number;
     sub_jenis_transaksi: string;
     nilai: number;
@@ -70,15 +73,32 @@ interface FieldPajak {
 
 
 export default function RincianRkas({ sekolah, rkas, npsn }: Props) {
-    
+    const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+    const [stateRkas, setStateRkas] = useState<number | undefined>(undefined);
     const totalRkas: number | undefined = rkas?.reduce((a, b) => {
         return a + b.jumlah;
     }, 0);
+
+    const openDialog = (value: number) => {
+        setStateRkas(value)
+        setDialogOpen(true);
+    };
+
+    const handleDialogToggle = (dialogIsOpen: boolean) => {
+        setDialogOpen(dialogIsOpen);
+
+        if (!dialogIsOpen) {
+            setStateRkas(undefined);
+        }
+    };
 
     return (
         <>
             {npsn ? (
             <>
+                <Dialog open={dialogOpen} onOpenChange={handleDialogToggle} modal>
+                    <DialogPengajuan dialogOpen={dialogOpen} stateRkas={stateRkas} closeDialog={handleDialogToggle} />
+                </Dialog>
                 <div className="flex text-sm py-4">
                     <div>Pagu:{' '}<span className="font-medium font-mono">{sekolah ? Number(sekolah?.jumlah).toLocaleString("id-ID") : 0}</span></div>
                     <div className="ml-auto">
@@ -95,6 +115,7 @@ export default function RincianRkas({ sekolah, rkas, npsn }: Props) {
                                 <TableHead className="w-28 text-right">Jumlah</TableHead>
                                 <TableHead className="w-28 text-right">Realisasi</TableHead>
                                 <TableHead className="w-28 text-right">Sisa</TableHead>
+                                <TableHead className="w-20 text-center">Pengajuan</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -111,6 +132,13 @@ export default function RincianRkas({ sekolah, rkas, npsn }: Props) {
                                 <TableCell className="text-right font-mono">{Number(item.jumlah).toLocaleString("id-ID")}</TableCell>
                                 <TableCell className="text-right font-mono">{Number(item.realisasi).toLocaleString("id-ID")}</TableCell>
                                 <TableCell className="text-right font-mono">{Number(item.jumlah-item.realisasi).toLocaleString("id-ID")}</TableCell>
+                                <TableCell>
+                                    <div className="flex justify-center">
+                                        <Button type="button" onClick={() => openDialog(item.id)} variant="outline" className="h-7 w-7" size="sm" aria-label="Hapus">
+                                            <ShoppingCart />
+                                        </Button>
+                                    </div>
+                                </TableCell>
                             </TableRow>
                         ))}
                         </TableBody>

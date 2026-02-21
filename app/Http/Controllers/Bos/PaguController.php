@@ -16,7 +16,7 @@ class PaguController extends Controller
 {
     public function index(RekapRkasRequest $request): Response
     {
-        if(Gate::denies('isTimBos')) {
+        if(Gate::denies('isTimDinas')) {
             abort(404);
         }
         
@@ -51,6 +51,10 @@ class PaguController extends Controller
 
     public function import(Request $request)
     {
+        if(Gate::denies('isTimDinas')) {
+            abort(404);
+        }
+        
         $file = $request->file('file');
         
         Excel::import(new PaguAnggaranImport($request->tahun, $request->sumberdana), $file);

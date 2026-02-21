@@ -44,14 +44,13 @@ type Pengajuan = {
 type RincianPengajuan = {
     alamat: string;
     id: number;
-    jam: string;
+    created_at: string;
     nama_bank: string;
     nama_penerima: string;
     no_rekening: string;
     nominal: number;
     rka_id: number;
     status: StatusRincian;
-    tanggal: string;
     uraian: string
 };
 
@@ -193,18 +192,6 @@ export default function RincianPengajuan({ rincianPengajuan, nomor, pengajuan }:
                         </TableFooter>
                     </Table>
                     <div className="flex flex-row-reverse gap-2 pt-4">
-                        {/* {pengajuan.send_at === null ? (
-                            <AlertSendPengajuan 
-                                nomor={nomor} 
-                                loadingSend={loadingSend} 
-                                isLoading={isLoadingSend} 
-                                isDisable={rincianPengajuan?.length} 
-                            />
-                        ):(
-                            <Button variant="outline" onClick={handleDownload}>
-                                <Download /> Download
-                            </Button>
-                        )} */}
                         {pengajuan.status !== 'divalidasi' && pengajuan.status !== 'disetujui' ? (
                             <AlertSendPengajuan 
                                 nomor={nomor} 
@@ -217,12 +204,9 @@ export default function RincianPengajuan({ rincianPengajuan, nomor, pengajuan }:
                         ):(
                             ''
                         )}
-                            
-
                             <Button variant="outline" onClick={handleDownload} disabled={rincianPengajuan?.length < 1}>
                                 <Download /> Download
                             </Button>
-
                     </div>
                 </>
             )}

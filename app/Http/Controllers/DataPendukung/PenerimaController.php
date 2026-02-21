@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DataPendukung;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\DataPendukung\PenerimaRequest;
 use App\Http\Resources\DataPendukung\PenerimaResource;
 use App\Models\Penerima;
@@ -26,8 +27,12 @@ class PenerimaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
+        if(Gate::denies('isTimBos')) {
+            abort(404);
+        }
+        
         if ($this->roleuser->slug === "admin" || $this->roleuser->slug === "approval" || $this->roleuser->slug === "checker") {
             $penerimas = Penerima::select('penerimas.id', 'penerimas.nama_penerima', 'penerimas.alamat', 'penerimas.no_rekening', 'penerimas.nama_bank', 'penerimas.npwp', 'sekolahs.nama_sekolah')
             ->leftJoin('sekolahs', 'penerimas.sekolah_id', '=', 'sekolahs.id')
@@ -56,6 +61,9 @@ class PenerimaController extends Controller
      */
     public function store(PenerimaRequest $request): RedirectResponse
     {
+        if(Gate::denies('isKepsekBendahara')) {
+            abort(404);
+        }
         
         try {
             Penerima::create([
@@ -101,6 +109,10 @@ class PenerimaController extends Controller
      */
     public function update(Penerima $penerima, PenerimaRequest $request): RedirectResponse
     {
+        if(Gate::denies('canAkses', $penerima)) {
+            abort(404);
+        }
+
         try {
             $penerima->update([
                 'nama_penerima' => $request->nama_penerima,
@@ -128,6 +140,10 @@ class PenerimaController extends Controller
      */
     public function destroy(Penerima $penerima): RedirectResponse
     {
+        if(Gate::denies('canAkses', $penerima)) {
+            abort(404);
+        }
+
         try {
             $penerima->delete();
 

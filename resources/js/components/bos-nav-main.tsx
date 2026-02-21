@@ -5,55 +5,73 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import type { NavItem, SharedData } from '@/types';
+import type { Auth, NavItem, SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import bos from "@/routes/bos";
 import { Banknote, BanknoteArrowDown, BanknoteArrowUp, HandCoins, LayoutGrid, ShoppingCart } from 'lucide-react';
 import { NavArkas } from './nav-rkas';
 
+type Props = {
+    auth: Auth;
+    tahun: number;
+};
+
 export function BosNavMain() {
-    const page = usePage<SharedData>();
-    const { tahun } = page.props;
+    const page = usePage<Props>();
+    const { auth, tahun } = page.props;
 
     const mainNavItems: NavItem[] = [
         {
             title: 'Dashboard',
             href: bos.dashboard(tahun),
             icon: LayoutGrid,
-            isActive: page.url.startsWith(`/bos/${tahun}/dashboard`)
+            isActive: page.url.startsWith(`/bos/${tahun}/dashboard`),
+            role: null,
         },
         {
             title: 'Transaksi',
             href: bos.transaksi.index(tahun),
             icon: BanknoteArrowDown,
-            isActive: page.url.startsWith(`/bos/${tahun}/transaksi`)
+            isActive: page.url.startsWith(`/bos/${tahun}/transaksi`),
+            role: null,
         },
         {
             title: 'Pengajuan',
             href: bos.pengajuan.index({ tahun: tahun }),
             icon: ShoppingCart,
-            isActive: page.url.startsWith(`/bos/${tahun}/pengajuan`)
+            isActive: page.url.startsWith(`/bos/${tahun}/pengajuan`),
+            role: null,
         },
         {
             title: 'Dana Masuk',
             href: "#",
             icon: BanknoteArrowUp,
-            isActive: false
+            isActive: false,
+            role: null,
         },
         {
             title: 'Pagu',
             href: bos.pagu.index({ tahun: tahun, jenjangs: '' }),
             icon: HandCoins,
-            isActive: page.url.startsWith(`/bos/${tahun}/pagu`)
+            isActive: page.url.startsWith(`/bos/${tahun}/pagu`),
+            role: 'tim-bos',
         },
     ];
+
+    const menuSidebar =mainNavItems.filter((item) => {
+        if (auth.user.roleuser.slug === 'admin' || auth.user.roleuser.slug === 'approval' || auth.user.roleuser.slug === 'checker') {
+            return item
+        } else if (auth.user.roleuser.slug === 'kepala-sekolah' || auth.user.roleuser.slug === 'bendahara') {
+            return item.role === null
+        }
+    });
 
     return (
         <>
         <SidebarGroup className="px-2 py-2">
             <SidebarGroupLabel>Menu Utama</SidebarGroupLabel>
             <SidebarMenu>
-                {mainNavItems.map((item) => (
+                {menuSidebar.map((item) => (
                     <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton
                             asChild
@@ -70,7 +88,6 @@ export function BosNavMain() {
                 <NavArkas tahun={tahun} />
             </SidebarMenu>
         </SidebarGroup>
-        
         </>
     );
 }

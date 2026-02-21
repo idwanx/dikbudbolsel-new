@@ -115,12 +115,11 @@ export default function DaftarPengajuan({ pengajuans, sekolah, tahun }: Props) {
                         daftarPengajuans.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="text-center">{index+1}</TableCell>
-                                
                                 <TableCell className="whitespace-normal">
                                     {!sekolah && (
                                         <p className="font-medium">{item.nama_sekolah}</p>
                                     )}
-                                    <p className="text-muted-foreground">No. {item.no_pengajuan}</p>
+                                    <p className={`${!sekolah ? 'text-muted-foreground' : 'text-foreground'}`}>No. {item.no_pengajuan}</p>
                                 </TableCell>
                                 <TableCell className="text-center">
                                     {item.dikirim}
@@ -142,7 +141,6 @@ export default function DaftarPengajuan({ pengajuans, sekolah, tahun }: Props) {
                                     {/* <Link className="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0">
                                         <TextSearch />
                                     </Link> */}
-                                    
                                     <Button type="button" variant="outline" className="h-7 w-7" size="sm" aria-label="Hapus" onClick={() => viewRincian(item)}>
                                         <TextSearch />
                                     </Button>

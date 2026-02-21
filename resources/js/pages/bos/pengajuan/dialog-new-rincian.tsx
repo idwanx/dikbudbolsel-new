@@ -306,7 +306,7 @@ export function DialogNewRincian({ dialogForm, pengajuan }: Props ) {
             });
         }
 
-        return () => { dialogForm }
+        return () => { dialogForm; }
 
     }, [dialogForm]);
 

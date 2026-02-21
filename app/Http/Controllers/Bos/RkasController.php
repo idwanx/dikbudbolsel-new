@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Validators\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\Gate;
 
 class RkasController extends Controller
 {
@@ -44,6 +45,10 @@ class RkasController extends Controller
 
     public function detail_rincian(RekapRkasRequest $request): Response
     {
+        if(Gate::denies('isTimBos')) {
+            abort(404);
+        }
+
         
         if ($request->sumberdana) {
             switch ($request->sumberdana) {
@@ -127,6 +132,10 @@ class RkasController extends Controller
 
     public function detail_rekapitulasi(RekapRkasRequest $request): Response
     {
+        if(Gate::denies('isTimBos')) {
+            abort(404);
+        }
+
         if ($request->sumberdana) {
             switch ($request->sumberdana) {
                 case 'bosp-reguler': 
@@ -178,12 +187,16 @@ class RkasController extends Controller
 
     public function import(Request $request)
     {
+        if(Gate::denies('isTimDinas')) {
+            abort(404);
+        }
+
         try {
             $file = $request->file('file');
         
             Excel::import(new RkasImport($request->tahun, $request->sekolahId, $request->sumberdana), $file);
             
-            return back()->with('success', 'Data imported and processed successfully!');
+            return back()->with('success', 'Data berhasil di import.');
 
         } catch (ValidationException $e) {
             $failures = $e->failures();

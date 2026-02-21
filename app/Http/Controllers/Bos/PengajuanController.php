@@ -82,7 +82,7 @@ class PengajuanController extends Controller
     public function daftar(Request $request): Response
     {
         
-        if(Gate::denies('isTimBos')) {
+        if(Gate::denies('isTimDinas')) {
             abort(404);
         }
 
@@ -124,7 +124,7 @@ class PengajuanController extends Controller
 
     public function daftar_rincian(Request $request): Response
     {
-        if(Gate::denies('isTimBos')) {
+        if(Gate::denies('isTimDinas')) {
             abort(404);
         }
 

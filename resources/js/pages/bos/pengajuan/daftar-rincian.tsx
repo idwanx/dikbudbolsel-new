@@ -44,14 +44,13 @@ type Pengajuan = {
 type RincianPengajuan = {
     alamat: string;
     id: number;
-    jam: string;
+    created_at: string;
     nama_bank: string;
     nama_penerima: string;
     no_rekening: string;
     nominal: number;
     rka_id: number;
     status: Status;
-    tanggal: string;
     uraian: string
 };
 
@@ -105,8 +104,6 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
             preserveScroll: true,
             onSuccess: (page: any) => {
                 if (page.flash.status === 'success') {
-                    console.log(page);
-                    
                     toast.success(page.flash.message, {
                         position: "bottom-center",
                         style: {

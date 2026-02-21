@@ -32,8 +32,13 @@ class AuthServiceProvider extends ServiceProvider
             return $roleuser > 0;
         });
 
-        Gate::define('isTimBos', function (User $user) {
+        Gate::define('isTimDinas', function (User $user) {
             $roleuser = $user->roleuser()->whereIn('roles.slug', ['admin', 'approval', 'checker'])->count();
+            return $roleuser > 0;
+        });
+
+        Gate::define('isTimBos', function (User $user) {
+            $roleuser = $user->roleuser()->whereIn('roles.slug', ['admin', 'approval', 'checker', 'kepala-sekolah', 'bendahara'])->count();
             return $roleuser > 0;
         });
 
