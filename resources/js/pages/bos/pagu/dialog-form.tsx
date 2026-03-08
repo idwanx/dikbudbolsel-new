@@ -13,7 +13,7 @@ import { useForm, usePage } from "@inertiajs/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon, CheckCircle } from "lucide-react";
 import ValidationErrors from "@/components/validation-errors";
-import { useEffect } from "react";
+import { SubmitEvent, useEffect } from "react";
 import bos from "@/routes/bos";
 
 interface Props {
@@ -30,15 +30,15 @@ export function DialogForm({ dialogOpen, dataState }: Props) {
     file: null as File | null
   });
 
-  function submitForm(e: React.FormEvent) {
-      e.preventDefault();
-  
-      post(bos.pagu.import().url, {
-          onSuccess: () => {
-            reset();
-            setData('file', null);
-          },
-      });
+  const submitForm = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    post(bos.pagu.import().url, {
+        onSuccess: () => {
+          reset();
+          setData('file', null);
+        },
+    });
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {

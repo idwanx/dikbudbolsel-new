@@ -1,3 +1,4 @@
+import { SubmitEvent, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DialogClose,
@@ -21,9 +22,8 @@ import {
 import importData from "@/routes/importData";
 import { useForm, usePage } from "@inertiajs/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircleIcon, Check, CheckCircle } from "lucide-react";
+import { AlertCircleIcon, CheckCircle } from "lucide-react";
 import ValidationErrors from "@/components/validation-errors";
-import { useEffect } from "react";
 
 interface Props {
   dialogOpen: boolean;
@@ -36,15 +36,15 @@ export function DialogForm({ dialogOpen }: Props) {
       file: null as File | null
   });
 
-  function submitForm(e: React.FormEvent) {
-      e.preventDefault();
+  const submitForm = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
   
-      post(importData.subprogram().url, {
-          onSuccess: () => {
-            // reset();
-            // setData('files', null);
-          },
-      });
+    post(importData.subprogram().url, {
+        onSuccess: () => {
+          // reset();
+          // setData('files', null);
+        },
+    });
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,38 +98,38 @@ export function DialogForm({ dialogOpen }: Props) {
       }
 
       <form className="space-y-6" onSubmit={submitForm}>
-      <div className="grid gap-6">
-        <div className="grid gap-2">
-          <Label htmlFor="files">Upload File</Label>
-          <Input 
-            id="file" 
-            name="file"
-            onChange={handleFile}
-            type="file"
-            accept=".csv, .xlsx, .xls" 
-            tabIndex={2}
-            required
-          />
-        </div>
+        <div className="grid gap-6">
+          <div className="grid gap-2">
+            <Label htmlFor="files">Upload File</Label>
+            <Input 
+              id="file" 
+              name="file"
+              onChange={handleFile}
+              type="file"
+              accept=".csv, .xlsx, .xls" 
+              tabIndex={2}
+              required
+            />
+          </div>
 
-        {progress && (
-            <progress value={progress.percentage} max="100">
-                {progress.percentage}%
-            </progress>
-        )}
-      </div>
-      <DialogFooter>
-        <DialogClose asChild>
-          <Button variant="outline" tabIndex={4}>Batal</Button>
-        </DialogClose>
-        <Button 
-          type="submit"
-          disabled={processing}
-          tabIndex={3}
-        >
-          Import
-        </Button>
-      </DialogFooter>
+          {progress && (
+              <progress value={progress.percentage} max="100">
+                  {progress.percentage}%
+              </progress>
+          )}
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline" tabIndex={4}>Batal</Button>
+          </DialogClose>
+          <Button 
+            type="submit"
+            disabled={processing}
+            tabIndex={3}
+          >
+            Import
+          </Button>
+        </DialogFooter>
       </form>
     </DialogContent>
   )

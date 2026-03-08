@@ -1,3 +1,4 @@
+import { SubmitEvent } from "react";
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 import penerima from "@/routes/penerima";
-import { useForm } from "@inertiajs/react";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { toast } from "sonner";
 
@@ -50,8 +50,9 @@ export function FormPenerima({
     clearErrors
  }: Props) {
 
-    const onFormSubmit = (e: React.FormEvent) => {
+    const onFormSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+        
         switch (mode) {
         case 'update':
             patch(penerima.update(data.id).url, {

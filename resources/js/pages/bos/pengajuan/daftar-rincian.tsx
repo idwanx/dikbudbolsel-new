@@ -14,7 +14,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -26,7 +25,6 @@ import { LabelStatusRincian } from './label-status-rincian';
 import Heading from '@/components/heading';
 import { Separator } from '@/components/ui/separator';
 import { Auth } from '@/types';
-import { Checkbox } from '@/components/ui/checkbox';
 import { router } from '@inertiajs/react';
 import bos from '@/routes/bos';
 import { toast } from 'sonner';

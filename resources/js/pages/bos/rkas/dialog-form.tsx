@@ -1,3 +1,4 @@
+import { SubmitEvent, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DialogClose,
@@ -13,7 +14,6 @@ import { useForm, usePage } from "@inertiajs/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon, CheckCircle } from "lucide-react";
 import ValidationErrors from "@/components/validation-errors";
-import { useEffect } from "react";
 import bos from "@/routes/bos";
 
 interface DialogProps {
@@ -31,15 +31,15 @@ export function DialogForm({ dialogOpen, dataState }: DialogProps) {
     file: null as File | null
   });
 
-  function submitForm(e: React.FormEvent) {
-      e.preventDefault();
-  
-      post(bos.rkas.import().url, {
-          onSuccess: () => {
-            // reset();
-            // setData('files', null);
-          },
-      });
+  const submitForm = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    post(bos.rkas.import().url, {
+        onSuccess: () => {
+          // reset();
+          // setData('files', null);
+        },
+    });
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,3 +1,4 @@
+import { SubmitEvent, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DialogClose,
@@ -23,7 +24,6 @@ import { useForm, usePage } from "@inertiajs/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon, Check, CheckCircle } from "lucide-react";
 import ValidationErrors from "@/components/validation-errors";
-import { useEffect } from "react";
 
 interface Props {
   dialogOpen: boolean;
@@ -43,15 +43,15 @@ export function DialogForm({ dialogOpen, jenjangs }: Props) {
       files: null as File | null
   });
 
-  function submitForm(e: React.FormEvent) {
-      e.preventDefault();
+  const submitForm = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
   
-      post(importData.sekolah().url, {
-          onSuccess: () => {
-            reset();
-            setData('files', null);
-          },
-      });
+    post(importData.sekolah().url, {
+        onSuccess: () => {
+          reset();
+          setData('files', null);
+        },
+    });
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {

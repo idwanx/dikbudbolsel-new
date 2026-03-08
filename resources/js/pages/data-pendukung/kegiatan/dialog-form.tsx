@@ -1,3 +1,4 @@
+import { SubmitEvent, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DialogClose,
@@ -9,21 +10,11 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import importData from "@/routes/importData";
 import { useForm, usePage } from "@inertiajs/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircleIcon, Check, CheckCircle } from "lucide-react";
+import { AlertCircleIcon, CheckCircle } from "lucide-react";
 import ValidationErrors from "@/components/validation-errors";
-import { useEffect } from "react";
 
 interface Props {
   dialogOpen: boolean;
@@ -36,15 +27,15 @@ export function DialogForm({ dialogOpen }: Props) {
       file: null as File | null
   });
 
-  function submitForm(e: React.FormEvent) {
-      e.preventDefault();
-  
-      post(importData.kegiatan().url, {
-          onSuccess: () => {
-            reset();
-            setData('file', null);
-          },
-      });
+  const submitForm = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    post(importData.kegiatan().url, {
+        onSuccess: () => {
+          reset();
+          setData('file', null);
+        },
+    });
   };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {

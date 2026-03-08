@@ -1,5 +1,5 @@
 import { AlertCircleIcon, CheckIcon, ChevronsUpDownIcon, Plus, X } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { SubmitEvent, useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DialogClose,
@@ -149,9 +149,9 @@ export function DialogNewRincian({ dialogForm, pengajuan }: Props ) {
         optionpajaks: [],
     });
 
-    const onFormSubmit = (e: React.FormEvent) => {
+    const onFormSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        
         const jumlahPajak: number | undefined = data?.optionpajaks.reduce((a, b) => {
             return a + b.jumlah_pajak;
         }, 0);

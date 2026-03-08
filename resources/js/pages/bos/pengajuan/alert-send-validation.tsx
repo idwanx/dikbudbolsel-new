@@ -1,19 +1,12 @@
 import {
-  Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
-import bos from "@/routes/bos";
-import { router } from "@inertiajs/react";
-import { Check, Send, Undo } from "lucide-react"
-
+import { Check } from "lucide-react"
 
 type State = {
     dialogKonfirmasi: boolean;
