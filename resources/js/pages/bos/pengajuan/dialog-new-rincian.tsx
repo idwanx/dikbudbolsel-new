@@ -1,4 +1,4 @@
-import { AlertCircleIcon, Check, CheckIcon, ChevronsUpDownIcon, Plus, X } from "lucide-react";
+import { AlertCircleIcon, CheckIcon, ChevronsUpDownIcon, Plus, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {

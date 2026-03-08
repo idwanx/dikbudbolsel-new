@@ -30,4 +30,5 @@ export type Role = {
     npsn: string;
     slug: string;
     sekolah_id: number;
+    sekolah_permission: string;
 };

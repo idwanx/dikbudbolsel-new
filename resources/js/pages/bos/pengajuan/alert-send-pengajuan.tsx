@@ -148,7 +148,7 @@ export function AlertSendPengajuan({ nomor, loadingSend, isLoading, lengthRincia
                     ):(
                         <Undo />
                     )}
-                    Batal
+                    Batal Kirim
                 </Button>
             ):(
                 ''

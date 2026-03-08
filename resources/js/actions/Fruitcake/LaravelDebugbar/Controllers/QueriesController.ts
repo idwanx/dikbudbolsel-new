@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\QueriesController::explain
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:16
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:17
 * @route '/_debugbar/queries/explain'
 */
 export const explain = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ explain.definition = {
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\QueriesController::explain
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:16
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:17
 * @route '/_debugbar/queries/explain'
 */
 explain.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ explain.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\QueriesController::explain
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:16
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:17
 * @route '/_debugbar/queries/explain'
 */
 explain.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ explain.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\QueriesController::explain
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:16
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:17
 * @route '/_debugbar/queries/explain'
 */
 const explainForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ const explainForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\QueriesController::explain
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:16
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/QueriesController.php:17
 * @route '/_debugbar/queries/explain'
 */
 explainForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

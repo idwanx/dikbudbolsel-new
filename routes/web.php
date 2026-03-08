@@ -36,11 +36,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('bos/{tahun?}/dashboard', DashboardController::class)->name('bos.dashboard');
 
     // Transaksi
+
+    // Route::get('bos/{tahun?}/transaksi', [TransaksiController::class, 'index'])->name('bos.transaksi.index');
+    // Route::post('transaksi/store', [TransaksiController::class, 'store_transaksi'])->name('bos.transaksi.store');
+    // Route::delete('transaksi/destroy/{transaksi}', [TransaksiController::class, 'destroy_transaksi'])->name('bos.transaksi.destroy');
+    // Route::post('transaksi/validasi/{nomor}', [TransaksiController::class, 'validasi_transaksi'])->name('bos.transaksi.validasi');
+
     Route::get('bos/{tahun?}/transaksi', [TransaksiController::class, 'index'])->name('bos.transaksi.index');
     Route::post('transaksi/store', [TransaksiController::class, 'store_transaksi'])->name('bos.transaksi.store');
     Route::delete('transaksi/destroy/{transaksi}', [TransaksiController::class, 'destroy_transaksi'])->name('bos.transaksi.destroy');
-
-
     Route::post('transaksi/validasi/{nomor}', [TransaksiController::class, 'validasi_transaksi'])->name('bos.transaksi.validasi');
 
     // Pengajuan
@@ -67,7 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Pagu
     Route::get('bos/{tahun?}/pagu/{jenjangs?}/{sumberdana?}', [PaguController::class, 'index'])->name('bos.pagu.index');
     Route::post('import-data/pagu', [PaguController::class, 'import'])->name('bos.pagu.import');
-    // Detch Data
+    // Fetch Data
     Route::get('fetch-data/penerima', [FetchDataController::class, 'getPenerima'])->name('fetchData.penerima');
     Route::get('fetch-data/rkas/{tahun?}/{sumberdana?}', [FetchDataController::class, 'getRkas'])->name('fetchData.rkas');
     Route::get('fetch-data/sekolah/{jenjang:slug?}', [FetchDataController::class, 'getSekolah'])->name('fetchData.sekolah');

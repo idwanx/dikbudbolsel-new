@@ -81,7 +81,6 @@ class PengajuanController extends Controller
 
     public function daftar(Request $request): Response
     {
-        
         if(Gate::denies('isTimDinas')) {
             abort(404);
         }

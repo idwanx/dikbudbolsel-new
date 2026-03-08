@@ -21,6 +21,8 @@ import { LabelStatusRincian } from './label-status-rincian';
 import Heading from '@/components/heading';
 import { Separator } from '@/components/ui/separator';
 import { DialogNewRincian } from './dialog-new-rincian';
+import { useAppContext } from '@/layouts/app-context';
+import { router } from '@inertiajs/react';
 
 type StatusRincian = "draft" | "validasi" | "divalidasi" | "berhasil" | "gagal";
 
@@ -61,6 +63,8 @@ export default function RincianPengajuan({ rincianPengajuan, nomor, pengajuan }:
     const [stateRincian, setStateRincian] = useState(null);
     const [isLoadingSend, setIsLoadingSend] = useState<boolean>(false);
 
+    const { notification, resetNotification } = useAppContext();
+
     const openDialogForm = () => {
         setDialogForm(true);
     };
@@ -98,6 +102,16 @@ export default function RincianPengajuan({ rincianPengajuan, nomor, pengajuan }:
             nomor;
         }
     }, [rincianPengajuan]);
+
+    useEffect(() => {
+        if (notification?.info === 'pengajuan-update') {
+            router.reload();
+        }
+
+        return () => {
+            nomor;
+        }
+    }, [notification]);
 
     const handleDownload = () => {
        window.location.href = bos.pengajuan.downloadRincian(nomor).url;

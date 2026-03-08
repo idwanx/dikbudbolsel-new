@@ -9,6 +9,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import MainPengajuan from './main-pengajuan';
 import { Button } from '@/components/ui/button';
 import { Check, ChevronLeft } from 'lucide-react';
@@ -22,6 +31,9 @@ import { router } from '@inertiajs/react';
 import bos from '@/routes/bos';
 import { toast } from 'sonner';
 import { useAppContext } from '@/layouts/app-context';
+import { Dialog } from '@/components/ui/dialog';
+import { AlertSendValidation } from './alert-send-validation';
+import { Spinner } from '@/components/ui/spinner';
 
 type Status = "draft" | "validasi" | "divalidasi" | "berhasil" | "gagal";
 
@@ -38,6 +50,7 @@ type Pengajuan = {
     no_pengajuan: string;
     send_at: string;
     slug: string;
+    status: string;
     validated_at: string;
 };
 
@@ -61,47 +74,29 @@ type Sekolah = {
     slug: string;
 };
 
+type PropsChecked = {
+    id: number;
+    status: Status;
+};
+
 export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincianPengajuan }: Props) {
     const [stateRincianPengajuan, setStateRincianPengajuan] = useState<RincianPengajuan[]>(rincianPengajuan);
-    const [selectedIds, setSelectedIds] = useState<number[]>([]);
+    const [dialogKonfirmasi, setDialogKonfirmasi] = useState<boolean>(false);
+    const [selectedIds, setSelectedIds] = useState<PropsChecked[]>([]);
     const { notification, resetNotification } = useAppContext();
-
-    const userAdminApproval: boolean = auth.user.roleuser.slug === 'admin' || auth.user.roleuser.slug === 'approval';
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const totalRincian: number | undefined = stateRincianPengajuan?.reduce((a, b) => {
         return a + b.nominal;
     }, 0);
 
-    const kembali = () => {
-        window.history.back();
-    };
-
-    const toggleSelectAll = (checked: boolean) => {
-        setSelectedIds(checked ? stateRincianPengajuan.map(item => item.id) : []);
-    };
-
-    const toggleItem = (id: number) => {
-        setSelectedIds(prev =>
-            prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-        );
-    };
-
-    useEffect(() => {
-        if (notification?.info === 'pengajuan-batal') {
-            // setStateRincianPengajuan(rincianPengajuan);
-            router.visit(bos.pengajuan.index({ tahun: tahun }));
-
-        }
-        return () => {
-            // pengajuan;
-            setStateRincianPengajuan(rincianPengajuan);
-        }
-
-    }, [rincianPengajuan, notification]);
-
     const submitValidasi = () => {
         router.post(bos.transaksi.validasi(pengajuan.slug).url, { data: selectedIds }, {
             preserveScroll: true,
+            onStart: () => {
+                setIsLoading(true);
+                handleDialogToggle(false);
+            },
             onSuccess: (page: any) => {
                 if (page.flash.status === 'success') {
                     toast.success(page.flash.message, {
@@ -111,7 +106,9 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
                         '--normal-text': 'light-dark(var(--color-green-600), var(--color-green-400))',
                         '--normal-border': 'light-dark(var(--color-green-600), var(--color-green-400))'
                         } as React.CSSProperties
-                    })
+                    });
+
+                    router.reload({ only: ['rincianPengajuan'] });
                 } else {
                     toast.error(page.flash.message, {
                         position: "bottom-center",
@@ -120,15 +117,109 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
                         '--normal-text': 'var(--destructive)',
                         '--normal-border': 'var(--destructive)'
                         } as React.CSSProperties
-                    })
+                    });
                 }
+            },
+            onError: () => {
+                setIsLoading(false);
+            },
+            onFinish: () => {
+                setIsLoading(false);
             },
         });
     };
 
-    
+    const handleSelectStatus = (valueStatus: any, valueId: number) => {
+        setSelectedIds(prevItems =>
+            prevItems.map(item =>
+                item.id === valueId ? { ...item, status: valueStatus } : item
+            )
+        );
+
+        setStateRincianPengajuan(prevItems =>
+            prevItems.map(item =>
+                item.id === valueId ? { ...item, status: valueStatus } : item
+            )
+        );
+    };
+
+    const handleSelectAllStatus = (valueStatus: any) => {
+        setSelectedIds(stateRincianPengajuan.map(item => ({
+            id: item.id, 
+            status: valueStatus
+        })));
+
+        setStateRincianPengajuan(stateRincianPengajuan.map((item) => {
+            return {
+                ...item,
+                status: valueStatus,
+            };
+        }));
+    };
+
+    useEffect(() => {
+        if (notification?.info === 'pengajuan-batal') {
+            resetNotification();
+            router.visit(bos.pengajuan.index({ tahun: tahun }));
+        }
+
+        return () => {
+            setStateRincianPengajuan(rincianPengajuan);
+            setSelectedIds(rincianPengajuan.map(item => ({
+                id: item.id, 
+                status: item.status
+            })));
+        }
+
+    }, [rincianPengajuan, notification]);
+
+    function checkRole(role: string): boolean {
+        switch (role) {
+            case 'admin':
+                return true;
+            case 'checker':
+                return auth.user.roleuser.sekolah_permission.includes(sekolah.id.toString());
+            default:
+                return false; 
+        }
+    }
+
+    const checkAutorization = checkRole(auth.user.roleuser.slug);
+
+    const openDialogKonfirmasi = () => {
+        setDialogKonfirmasi(true);
+    };
+
+    const handleDialogToggle = (dialogIsOpen: boolean) => {
+        setDialogKonfirmasi(dialogIsOpen);
+    };
+
+    function kembali() {
+        window.history.back();
+    };
+
+    const getClassNameForColor = (color: Status) => {
+        switch (color) {
+        case 'draft':
+            return '';
+        case 'validasi':
+            return 'bg-amber-50 ring ring-amber-700 text-amber-700 dark:bg-amber-950 dark:text-amber-300';
+        case 'divalidasi':
+            return 'bg-blue-50 ring ring-blue-700 text-blue-700 dark:bg-blue-950 dark:text-blue-300';
+        case 'berhasil': 
+            return 'bg-green-50 ring ring-green-700 text-green-700  dark:bg-green-950 dark:text-green-300';
+        case 'gagal':
+            return 'bg-red-50 ring ring-red-700 text-red-700 dark:bg-red-950 dark:text-red-300';
+        default:
+            return '';
+        }
+    };
+
     return (
         <>
+            <Dialog open={dialogKonfirmasi} onOpenChange={handleDialogToggle} modal>
+                <AlertSendValidation dialogKonfirmasi={dialogKonfirmasi} submitValidasi={submitValidasi} />
+            </Dialog>
             <div className="flex">
                 <Heading
                     title={`Rincian Pengajuan ${sekolah ? sekolah?.nama_sekolah : ''}`}
@@ -151,14 +242,8 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
                         <TableHead>Uraian</TableHead>
                         <TableHead className="w-50 2xl:w-60">Penerima</TableHead>
                         <TableHead className="w-20 2xl:w-40 text-right">Nominal</TableHead>
-                        <TableHead className="w-20 2xl:w-30 text-center">Status</TableHead>
-                        <TableHead className="w-12 2xl:w-20 text-center">
-                            <Checkbox 
-                                id="validasi" 
-                                checked={selectedIds.length > 0}
-                                onCheckedChange={(checked) => toggleSelectAll(checked as boolean)}
-                                className='mr-2'
-                            />
+                        <TableHead className="w-30 2xl:w-40 text-center">
+                            Status
                         </TableHead>
                     </TableRow>
                 </TableHeader>
@@ -178,20 +263,59 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
                             <TableCell className="font-mono text-right">
                                 {Number(item.nominal).toLocaleString("id-ID")}
                             </TableCell>
-                            <TableCell className="text-center"><LabelStatusRincian status={item.status} /></TableCell>
                             <TableCell className="text-center">
-                                <Checkbox 
-                                    key={index}
-                                    checked={selectedIds.includes(item.id)}
-                                    onCheckedChange={() => toggleItem(item.id)}
-                                    className='mr-2'
-                                />
+                            {auth.user.roleuser.slug === 'admin' || auth.user.roleuser.slug === 'approval' ? (
+                                <Select 
+                                    defaultValue={item.status} 
+                                    name="status"
+                                    value={item.status} 
+                                    onValueChange={(e) => handleSelectStatus(e, item.id)}
+                                    autoComplete='status'
+                                >
+                                    <SelectTrigger id="status" className={`w-full h-7 border-none ${getClassNameForColor(item.status)} shadow-none`} tabIndex={1}>
+                                    <SelectValue placeholder="Pilih Status" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem value="validasi">Validasi</SelectItem>
+                                            <SelectItem value="divalidasi">Divalidasi</SelectItem>
+                                            <SelectItem value="berhasil">Berhasil</SelectItem>
+                                            <SelectItem value="gagal">Gagal</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            ):(
+                                pengajuan.status !== 'disetujui' ?
+                                    !checkAutorization ? (
+                                        <LabelStatusRincian status={item.status} />
+                                    ):(
+                                        <Select 
+                                            defaultValue={item.status} 
+                                            name="status"
+                                            value={item.status} 
+                                            onValueChange={(e) => handleSelectStatus(e, item.id)}
+                                            autoComplete='status'
+                                        >
+                                            <SelectTrigger id="status" className={`w-full h-7 border-none ${getClassNameForColor(item.status)} shadow-none`} tabIndex={1}>
+                                            <SelectValue placeholder="Pilih Status" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    <SelectItem value="validasi">Validasi</SelectItem>
+                                                    <SelectItem value="divalidasi">Divalidasi</SelectItem>
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    )
+                                :
+                                <LabelStatusRincian status={item.status} />
+                            )}
                             </TableCell>
                         </TableRow>
                     ))
                     ):(
                         <TableRow>
-                            <TableCell colSpan={6} className='text-muted-foreground'>Tidak ada rincian, Klik tombol (+ Rincian) untuk menambah rincian baru.</TableCell>
+                            <TableCell colSpan={5} className='text-muted-foreground'>Tidak ada rincian, Klik tombol (+ Rincian) untuk menambah rincian baru.</TableCell>
                         </TableRow>
                     )}
                 </TableBody>
@@ -199,16 +323,75 @@ export default function DaftarRincian({ auth, tahun, sekolah, pengajuan, rincian
                     <TableRow>
                         <TableCell colSpan={3} className="text-right">Total</TableCell>
                         <TableCell className="font-mono text-right">{Number(totalRincian).toLocaleString("id-ID")}</TableCell>
-                        <TableCell className="text-center">-</TableCell>
-                        <TableCell className="text-center">-</TableCell>
+                        <TableCell className="text-center">
+                            {auth.user.roleuser.slug === 'admin' || auth.user.roleuser.slug === 'approval' ? (
+                                <Select 
+                                    defaultValue={pengajuan.status} 
+                                    name="status_all"
+                                    onValueChange={(e) => handleSelectAllStatus(e)}
+                                    autoComplete='status_all'
+                                >
+                                    <SelectTrigger id="status" className="w-full h-7" tabIndex={1}>
+                                        <SelectValue placeholder="Pilih Status" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem value="validasi">Validasi</SelectItem>
+                                            <SelectItem value="divalidasi">Divalidasi</SelectItem>
+                                            <SelectItem value="berhasil">Berhasil</SelectItem>
+                                            <SelectItem value="gagal">Gagal</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            ):(
+                                pengajuan.status !== 'disetujui' &&
+                                checkAutorization && 
+                                <Select 
+                                    defaultValue={pengajuan.status} 
+                                    name="status_all"
+                                    onValueChange={(e) => handleSelectAllStatus(e)}
+                                    autoComplete='status_all'
+                                >
+                                    <SelectTrigger id="status" className="w-full h-7" tabIndex={1}>
+                                        <SelectValue placeholder="Pilih Status" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem value="validasi">Validasi</SelectItem>
+                                            <SelectItem value="divalidasi">Divalidasi</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            )}
+                        </TableCell>
                     </TableRow>
                 </TableFooter>
             </Table>
-            <div className="flex flex-row-reverse pt-4">
-                <Button onClick={submitValidasi} disabled={selectedIds.length < 1}>
-                    <Check /> Validasi
-                </Button>
-            </div>
+            {auth.user.roleuser.slug === 'admin' || auth.user.roleuser.slug === 'approval' ? (
+                <div className="flex flex-row-reverse pt-4">
+                    <Button onClick={openDialogKonfirmasi} disabled={isLoading}>
+                        {isLoading ? 
+                        <Spinner />
+                        :
+                        <Check />
+                        }
+                         Setujui
+                    </Button>
+                </div>
+            ):(
+                pengajuan.status !== 'disetujui' &&
+                    checkAutorization && 
+                    <div className="flex flex-row-reverse pt-4">
+                        <Button onClick={openDialogKonfirmasi} disabled={isLoading}>
+                            {isLoading ? 
+                            <Spinner />
+                            :
+                            <Check />
+                            }
+                            Validasi
+                        </Button>
+                    </div>
+            )}
         </>
     );
 }

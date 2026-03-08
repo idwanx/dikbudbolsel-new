@@ -314,7 +314,7 @@ daftar.form = daftarForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 export const daftarRincian = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +329,7 @@ daftarRincian.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 daftarRincian.url = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions) => {
@@ -372,7 +372,7 @@ daftarRincian.url = (args?: { tahun?: string | number, rincian?: string | number
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 daftarRincian.get = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -382,7 +382,7 @@ daftarRincian.get = (args?: { tahun?: string | number, rincian?: string | number
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 daftarRincian.head = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -392,7 +392,7 @@ daftarRincian.head = (args?: { tahun?: string | number, rincian?: string | numbe
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 const daftarRincianForm = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -402,7 +402,7 @@ const daftarRincianForm = (args?: { tahun?: string | number, rincian?: string | 
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 daftarRincianForm.get = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -412,7 +412,7 @@ daftarRincianForm.get = (args?: { tahun?: string | number, rincian?: string | nu
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::daftarRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:125
+* @see app/Http/Controllers/Bos/PengajuanController.php:124
 * @route '/bos/{tahun?}/pengajuan/daftar/{rincian?}/{jenjangs?}/{npsn?}/{nomor?}'
 */
 daftarRincianForm.head = (args?: { tahun?: string | number, rincian?: string | number, jenjangs?: string | number, npsn?: string | number, nomor?: string | number } | [tahun: string | number, rincian: string | number, jenjangs: string | number, npsn: string | number, nomor: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -429,7 +429,7 @@ daftarRincian.form = daftarRincianForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::kirimRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:282
+* @see app/Http/Controllers/Bos/PengajuanController.php:281
 * @route '/kirim/rincian-pengajuan/{nomor}'
 */
 export const kirimRincian = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -444,7 +444,7 @@ kirimRincian.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::kirimRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:282
+* @see app/Http/Controllers/Bos/PengajuanController.php:281
 * @route '/kirim/rincian-pengajuan/{nomor}'
 */
 kirimRincian.url = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -471,7 +471,7 @@ kirimRincian.url = (args: { nomor: string | number } | [nomor: string | number ]
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::kirimRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:282
+* @see app/Http/Controllers/Bos/PengajuanController.php:281
 * @route '/kirim/rincian-pengajuan/{nomor}'
 */
 kirimRincian.patch = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -481,7 +481,7 @@ kirimRincian.patch = (args: { nomor: string | number } | [nomor: string | number
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::kirimRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:282
+* @see app/Http/Controllers/Bos/PengajuanController.php:281
 * @route '/kirim/rincian-pengajuan/{nomor}'
 */
 const kirimRincianForm = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -496,7 +496,7 @@ const kirimRincianForm = (args: { nomor: string | number } | [nomor: string | nu
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::kirimRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:282
+* @see app/Http/Controllers/Bos/PengajuanController.php:281
 * @route '/kirim/rincian-pengajuan/{nomor}'
 */
 kirimRincianForm.patch = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -513,7 +513,7 @@ kirimRincian.form = kirimRincianForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::batalKirim
-* @see app/Http/Controllers/Bos/PengajuanController.php:340
+* @see app/Http/Controllers/Bos/PengajuanController.php:339
 * @route '/batal-kirim/rincian-pengajuan/{nomor}'
 */
 export const batalKirim = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -528,7 +528,7 @@ batalKirim.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::batalKirim
-* @see app/Http/Controllers/Bos/PengajuanController.php:340
+* @see app/Http/Controllers/Bos/PengajuanController.php:339
 * @route '/batal-kirim/rincian-pengajuan/{nomor}'
 */
 batalKirim.url = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -555,7 +555,7 @@ batalKirim.url = (args: { nomor: string | number } | [nomor: string | number ] |
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::batalKirim
-* @see app/Http/Controllers/Bos/PengajuanController.php:340
+* @see app/Http/Controllers/Bos/PengajuanController.php:339
 * @route '/batal-kirim/rincian-pengajuan/{nomor}'
 */
 batalKirim.patch = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -565,7 +565,7 @@ batalKirim.patch = (args: { nomor: string | number } | [nomor: string | number ]
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::batalKirim
-* @see app/Http/Controllers/Bos/PengajuanController.php:340
+* @see app/Http/Controllers/Bos/PengajuanController.php:339
 * @route '/batal-kirim/rincian-pengajuan/{nomor}'
 */
 const batalKirimForm = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -580,7 +580,7 @@ const batalKirimForm = (args: { nomor: string | number } | [nomor: string | numb
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::batalKirim
-* @see app/Http/Controllers/Bos/PengajuanController.php:340
+* @see app/Http/Controllers/Bos/PengajuanController.php:339
 * @route '/batal-kirim/rincian-pengajuan/{nomor}'
 */
 batalKirimForm.patch = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -597,7 +597,7 @@ batalKirim.form = batalKirimForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 export const downloadRincian = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -612,7 +612,7 @@ downloadRincian.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 downloadRincian.url = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions) => {
@@ -645,7 +645,7 @@ downloadRincian.url = (args: { pengajuan: string | { slug: string } } | [pengaju
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 downloadRincian.get = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -655,7 +655,7 @@ downloadRincian.get = (args: { pengajuan: string | { slug: string } } | [pengaju
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 downloadRincian.head = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -665,7 +665,7 @@ downloadRincian.head = (args: { pengajuan: string | { slug: string } } | [pengaj
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 const downloadRincianForm = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -675,7 +675,7 @@ const downloadRincianForm = (args: { pengajuan: string | { slug: string } } | [p
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 downloadRincianForm.get = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -685,7 +685,7 @@ downloadRincianForm.get = (args: { pengajuan: string | { slug: string } } | [pen
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::downloadRincian
-* @see app/Http/Controllers/Bos/PengajuanController.php:381
+* @see app/Http/Controllers/Bos/PengajuanController.php:380
 * @route '/download/rincian-pengajuan/{pengajuan}'
 */
 downloadRincianForm.head = (args: { pengajuan: string | { slug: string } } | [pengajuan: string | { slug: string } ] | string | { slug: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -702,7 +702,7 @@ downloadRincian.form = downloadRincianForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::destroy
-* @see app/Http/Controllers/Bos/PengajuanController.php:254
+* @see app/Http/Controllers/Bos/PengajuanController.php:253
 * @route '/pengajuan/destroy/{pengajuan}/{tahun}'
 */
 export const destroy = (args: { pengajuan: string | { slug: string }, tahun: string | number } | [pengajuan: string | { slug: string }, tahun: string | number ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -717,7 +717,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::destroy
-* @see app/Http/Controllers/Bos/PengajuanController.php:254
+* @see app/Http/Controllers/Bos/PengajuanController.php:253
 * @route '/pengajuan/destroy/{pengajuan}/{tahun}'
 */
 destroy.url = (args: { pengajuan: string | { slug: string }, tahun: string | number } | [pengajuan: string | { slug: string }, tahun: string | number ], options?: RouteQueryOptions) => {
@@ -745,7 +745,7 @@ destroy.url = (args: { pengajuan: string | { slug: string }, tahun: string | num
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::destroy
-* @see app/Http/Controllers/Bos/PengajuanController.php:254
+* @see app/Http/Controllers/Bos/PengajuanController.php:253
 * @route '/pengajuan/destroy/{pengajuan}/{tahun}'
 */
 destroy.delete = (args: { pengajuan: string | { slug: string }, tahun: string | number } | [pengajuan: string | { slug: string }, tahun: string | number ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -755,7 +755,7 @@ destroy.delete = (args: { pengajuan: string | { slug: string }, tahun: string | 
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::destroy
-* @see app/Http/Controllers/Bos/PengajuanController.php:254
+* @see app/Http/Controllers/Bos/PengajuanController.php:253
 * @route '/pengajuan/destroy/{pengajuan}/{tahun}'
 */
 const destroyForm = (args: { pengajuan: string | { slug: string }, tahun: string | number } | [pengajuan: string | { slug: string }, tahun: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -770,7 +770,7 @@ const destroyForm = (args: { pengajuan: string | { slug: string }, tahun: string
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::destroy
-* @see app/Http/Controllers/Bos/PengajuanController.php:254
+* @see app/Http/Controllers/Bos/PengajuanController.php:253
 * @route '/pengajuan/destroy/{pengajuan}/{tahun}'
 */
 destroyForm.delete = (args: { pengajuan: string | { slug: string }, tahun: string | number } | [pengajuan: string | { slug: string }, tahun: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -787,7 +787,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::newMethod
-* @see app/Http/Controllers/Bos/PengajuanController.php:154
+* @see app/Http/Controllers/Bos/PengajuanController.php:153
 * @route '/bos/pengajuan/new'
 */
 export const newMethod = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -802,7 +802,7 @@ newMethod.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::newMethod
-* @see app/Http/Controllers/Bos/PengajuanController.php:154
+* @see app/Http/Controllers/Bos/PengajuanController.php:153
 * @route '/bos/pengajuan/new'
 */
 newMethod.url = (options?: RouteQueryOptions) => {
@@ -811,7 +811,7 @@ newMethod.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::newMethod
-* @see app/Http/Controllers/Bos/PengajuanController.php:154
+* @see app/Http/Controllers/Bos/PengajuanController.php:153
 * @route '/bos/pengajuan/new'
 */
 newMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -821,7 +821,7 @@ newMethod.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::newMethod
-* @see app/Http/Controllers/Bos/PengajuanController.php:154
+* @see app/Http/Controllers/Bos/PengajuanController.php:153
 * @route '/bos/pengajuan/new'
 */
 const newMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -831,7 +831,7 @@ const newMethodForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'>
 
 /**
 * @see \App\Http\Controllers\Bos\PengajuanController::newMethod
-* @see app/Http/Controllers/Bos/PengajuanController.php:154
+* @see app/Http/Controllers/Bos/PengajuanController.php:153
 * @route '/bos/pengajuan/new'
 */
 newMethodForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

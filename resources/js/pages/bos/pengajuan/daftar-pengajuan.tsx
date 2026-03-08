@@ -61,6 +61,15 @@ export default function DaftarPengajuan({ pengajuans, sekolah, tahun }: Props) {
         resetNotification();
     };
 
+     const updatePengajuan = (newPengajuan: DaftarPengajuan) => {
+        setDaftarPengajuans(prevItems =>
+            prevItems.map(item =>
+                item.id === newPengajuan.id ? { ...item, status: newPengajuan.status } : item
+            )
+        );
+        resetNotification();
+    };
+
     const destroyPengajuan = (id: number) => {
         setDaftarPengajuans(prevItems =>
             prevItems.filter(item => item.id !== id)
@@ -76,6 +85,8 @@ export default function DaftarPengajuan({ pengajuans, sekolah, tahun }: Props) {
             addNewPengajuan(notification.data);
         } else if (notification?.info === 'pengajuan-batal') {
             destroyPengajuan(notification.data.id)
+        } else if (notification?.info === 'pengajuan-update') {
+            updatePengajuan(notification?.data);
         }
 
         return () => {

@@ -116,7 +116,7 @@ export function DialogPengajuan({ dialogOpen, stateRkas, closeDialog }: Props) {
                                 <p className="text-xs text-muted-foreground">{item.nama_bank}</p>
                                 <p className="text-xs text-muted-foreground">{item.no_rekening}</p>
                             </TableCell>
-                            <TableCell className="font-mono text-right bg-amber-400">
+                            <TableCell className="font-mono text-right">
                                 {Number(item.nominal).toLocaleString("id-ID")}
                             </TableCell>
                             <TableCell className="text-center">

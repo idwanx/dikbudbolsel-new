@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults, validateParameters } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 export const index = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 index.url = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -47,7 +47,7 @@ index.url = (args?: { tahun?: string | number } | [tahun: string | number ] | st
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 index.get = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -57,7 +57,7 @@ index.get = (args?: { tahun?: string | number } | [tahun: string | number ] | st
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 index.head = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -67,7 +67,7 @@ index.head = (args?: { tahun?: string | number } | [tahun: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 const indexForm = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -77,7 +77,7 @@ const indexForm = (args?: { tahun?: string | number } | [tahun: string | number 
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 indexForm.get = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -87,7 +87,7 @@ indexForm.get = (args?: { tahun?: string | number } | [tahun: string | number ] 
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::index
-* @see app/Http/Controllers/Bos/TransaksiController.php:28
+* @see app/Http/Controllers/Bos/TransaksiController.php:29
 * @route '/bos/{tahun?}/transaksi'
 */
 indexForm.head = (args?: { tahun?: string | number } | [tahun: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -104,7 +104,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::store_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:35
+* @see app/Http/Controllers/Bos/TransaksiController.php:36
 * @route '/transaksi/store'
 */
 export const store_transaksi = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -119,7 +119,7 @@ store_transaksi.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::store_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:35
+* @see app/Http/Controllers/Bos/TransaksiController.php:36
 * @route '/transaksi/store'
 */
 store_transaksi.url = (options?: RouteQueryOptions) => {
@@ -128,7 +128,7 @@ store_transaksi.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::store_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:35
+* @see app/Http/Controllers/Bos/TransaksiController.php:36
 * @route '/transaksi/store'
 */
 store_transaksi.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -138,7 +138,7 @@ store_transaksi.post = (options?: RouteQueryOptions): RouteDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::store_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:35
+* @see app/Http/Controllers/Bos/TransaksiController.php:36
 * @route '/transaksi/store'
 */
 const store_transaksiForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -148,7 +148,7 @@ const store_transaksiForm = (options?: RouteQueryOptions): RouteFormDefinition<'
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::store_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:35
+* @see app/Http/Controllers/Bos/TransaksiController.php:36
 * @route '/transaksi/store'
 */
 store_transaksiForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -160,7 +160,7 @@ store_transaksi.form = store_transaksiForm
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:145
+* @see app/Http/Controllers/Bos/TransaksiController.php:163
 * @route '/transaksi/destroy/{transaksi}'
 */
 export const destroy_transaksi = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -175,7 +175,7 @@ destroy_transaksi.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:145
+* @see app/Http/Controllers/Bos/TransaksiController.php:163
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksi.url = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -208,7 +208,7 @@ destroy_transaksi.url = (args: { transaksi: number | { id: number } } | [transak
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:145
+* @see app/Http/Controllers/Bos/TransaksiController.php:163
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksi.delete = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -218,7 +218,7 @@ destroy_transaksi.delete = (args: { transaksi: number | { id: number } } | [tran
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:145
+* @see app/Http/Controllers/Bos/TransaksiController.php:163
 * @route '/transaksi/destroy/{transaksi}'
 */
 const destroy_transaksiForm = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -233,7 +233,7 @@ const destroy_transaksiForm = (args: { transaksi: number | { id: number } } | [t
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::destroy_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:145
+* @see app/Http/Controllers/Bos/TransaksiController.php:163
 * @route '/transaksi/destroy/{transaksi}'
 */
 destroy_transaksiForm.delete = (args: { transaksi: number | { id: number } } | [transaksi: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -250,7 +250,7 @@ destroy_transaksi.form = destroy_transaksiForm
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::validasi_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:107
+* @see app/Http/Controllers/Bos/TransaksiController.php:108
 * @route '/transaksi/validasi/{nomor}'
 */
 export const validasi_transaksi = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -265,7 +265,7 @@ validasi_transaksi.definition = {
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::validasi_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:107
+* @see app/Http/Controllers/Bos/TransaksiController.php:108
 * @route '/transaksi/validasi/{nomor}'
 */
 validasi_transaksi.url = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -292,7 +292,7 @@ validasi_transaksi.url = (args: { nomor: string | number } | [nomor: string | nu
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::validasi_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:107
+* @see app/Http/Controllers/Bos/TransaksiController.php:108
 * @route '/transaksi/validasi/{nomor}'
 */
 validasi_transaksi.post = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -302,7 +302,7 @@ validasi_transaksi.post = (args: { nomor: string | number } | [nomor: string | n
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::validasi_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:107
+* @see app/Http/Controllers/Bos/TransaksiController.php:108
 * @route '/transaksi/validasi/{nomor}'
 */
 const validasi_transaksiForm = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -312,7 +312,7 @@ const validasi_transaksiForm = (args: { nomor: string | number } | [nomor: strin
 
 /**
 * @see \App\Http\Controllers\Bos\TransaksiController::validasi_transaksi
-* @see app/Http/Controllers/Bos/TransaksiController.php:107
+* @see app/Http/Controllers/Bos/TransaksiController.php:108
 * @route '/transaksi/validasi/{nomor}'
 */
 validasi_transaksiForm.post = (args: { nomor: string | number } | [nomor: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

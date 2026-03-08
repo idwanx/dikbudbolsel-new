@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 export const getAssets = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ getAssets.definition = {
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 getAssets.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ getAssets.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 getAssets.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ getAssets.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 getAssets.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ getAssets.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 const getAssetsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const getAssetsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 getAssetsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ getAssetsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \Fruitcake\LaravelDebugbar\Controllers\AssetController::getAssets
-* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:15
+* @see vendor/barryvdh/laravel-debugbar/src/Controllers/AssetController.php:16
 * @route '/_debugbar/assets'
 */
 getAssetsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

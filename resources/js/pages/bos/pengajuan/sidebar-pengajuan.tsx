@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
 import { Dialog } from "@/components/ui/dialog";
+import { useAppContext } from "@/layouts/app-context";
 
 type Props = {
     daftarPengajuan: DaftarPengajuan[];
@@ -45,33 +46,43 @@ export function SidebarPengajuan() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [statePengajuan, setStatePengajuan] = useState(null);
   const currentYear = new Date().getFullYear();
+  const { notification, resetNotification } = useAppContext();
 
   const newPengajuan = () => {
-      router.post(bos.pengajuan.new(), { tahun: tahun }, {
-        onStart: () => { setIsLoading(true); },
-        onSuccess: (page: any) => {
-          if (page.flash.status === 'success') {
-            router.reload({ only: ['daftarPengajuan'] });
-            addNewPengajuan(page.flash.data);
-          } else {
-            toast.error(page.flash.message, {
-              position: "bottom-center",
-              style: {
-                '--normal-bg': 'var(--background)',
-                '--normal-text': 'var(--destructive)',
-                '--normal-border': 'var(--destructive)'
-              } as React.CSSProperties
-            })
-          }
-        },
-        onFinish: () => {
-          setIsLoading(false);
-        },
-      })
+    router.post(bos.pengajuan.new(), { tahun: tahun }, {
+      onStart: () => { setIsLoading(true); },
+      onSuccess: (page: any) => {
+        if (page.flash.status === 'success') {
+          router.reload({ only: ['daftarPengajuan'] });
+          addNewPengajuan(page.flash.data);
+        } else {
+          toast.error(page.flash.message, {
+            position: "bottom-center",
+            style: {
+              '--normal-bg': 'var(--background)',
+              '--normal-text': 'var(--destructive)',
+              '--normal-border': 'var(--destructive)'
+            } as React.CSSProperties
+          })
+        }
+      },
+      onFinish: () => {
+        setIsLoading(false);
+      },
+    });
   };
 
   const addNewPengajuan = (value: DaftarPengajuan) => {
     setStateDaftarPengajuan([value, ...stateDaftarPengajuan]);
+  };
+
+  const updatePengajuan = (newPengajuan: DaftarPengajuan) => {
+    setStateDaftarPengajuan(prevItems =>
+        prevItems.map(item =>
+            item.id === newPengajuan.id ? { ...item, status: newPengajuan.status } : item
+        )
+    );
+    resetNotification();
   };
 
   const destroyPengajuan = (slug: string) => {
@@ -93,13 +104,24 @@ export function SidebarPengajuan() {
 
   useEffect(() => {
       if (daftarPengajuan) {
-          setStateDaftarPengajuan(daftarPengajuan);
-      }
-      
+        setStateDaftarPengajuan(daftarPengajuan);
+      } 
+
       return () => {
-          nomor;
+        nomor;
       }
+
   }, [daftarPengajuan]);
+
+  useEffect(() => {
+      if (notification?.info === 'pengajuan-update') {
+        updatePengajuan(notification?.data);
+      }
+
+      return () => {
+        nomor;
+      }
+  }, [notification]);
 
   return (
     <>

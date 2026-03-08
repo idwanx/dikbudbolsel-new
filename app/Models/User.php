@@ -62,7 +62,7 @@ class User extends Authenticatable
     public function roleuser(): HasOne
     {
         return $this->hasOne(RoleUser::class)
-        ->select(['role_user.id', 'roles.nama_role', 'roles.slug', 'role_user.user_id', 'role_user.role_id', 'role_user.sekolah_id', 'role_user.permission', 'sekolahs.npsn', 'sekolahs.nama_sekolah', 'jenjangs.slug as jenjang'])
+        ->select(['role_user.id', 'roles.nama_role', 'roles.slug', 'role_user.user_id', 'role_user.role_id', 'role_user.sekolah_id', 'role_user.sekolah_permission', 'sekolahs.npsn', 'sekolahs.nama_sekolah', 'jenjangs.slug as jenjang'])
         ->leftJoin('roles', 'role_user.role_id', '=', 'roles.id')
         ->leftJoin('sekolahs', 'role_user.sekolah_id', '=', 'sekolahs.id')
         ->leftJoin('jenjangs', 'sekolahs.jenjang_id', '=', 'jenjangs.id');

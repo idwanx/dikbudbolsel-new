@@ -27,8 +27,10 @@ class TransaksisExport implements FromCollection, WithColumnFormatting, WithHead
         return DB::table('transaksis')->select('penerimas.no_rekening', 'transaksis.nominal', 'pengajuans.no_pengajuan', 'transaksis.uraian')
             ->leftJoin('pengajuans', 'transaksis.pengajuan_id', '=', 'pengajuans.id')
             ->leftJoin('penerimas', 'transaksis.penerima_id', '=', 'penerimas.id')
-            ->where('transaksis.pengajuan_id', $this->pengajuan)
-            ->get();
+            ->where([
+                'transaksis.pengajuan_id' => $this->pengajuan,
+                'transaksis.status' => 'divalidasi'
+            ])->get();
     }
     public function columnFormats(): array
     {

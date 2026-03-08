@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Bos;
 
-use App\Events\TransaksiEvent;
 use App\Http\Controllers\Controller;
+use App\Events\TransaksiEvent;
 use App\Http\Requests\Bos\PengajuanRequest;
 use App\Models\Pengajuan;
 use App\Models\Transaksi;
@@ -12,12 +12,11 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-// use Illuminate\Support\Collection;
 use Inertia\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-class TransaksiController extends Controller
+class RealisasiController extends Controller
 {
     public $roleuser;
 
@@ -26,14 +25,14 @@ class TransaksiController extends Controller
         $this->roleuser = Auth::user()->roleuser()->firstOrFail();
     }
 
-    public function index(int $tahun, Request $request): Response
+    public function index(): Response
     {
-        return Inertia::render('bos/transaksi', [
+        return Inertia::render('bos/realisasi/main', [
 
         ]);
     }
 
-    public function store_transaksi(PengajuanRequest $request)
+    public function store_realisasi(PengajuanRequest $request)
     {
         if(Gate::denies('isKepsekBendahara')) {
             abort(404);
@@ -105,7 +104,7 @@ class TransaksiController extends Controller
         }
     }
 
-    public function validasi_transaksi(Request $request): RedirectResponse
+    public function validasi_realisasi(Request $request): RedirectResponse
     {
         if(Gate::denies('isTimDinas')) {
             abort(404);
@@ -133,15 +132,6 @@ class TransaksiController extends Controller
                 ]);
         }
 
-        // $transaksis = Transaksi::where('pengajuan_id', $findPengajuan->id)
-        // ->chunkById(200, function (Collection $transaksis) {
-        //     $transaksis->each->update(['status' => 'divalidasi']);
-        // }, column: 'id');
-
-        // $findPengajuan->transaksis()->update([
-        //     'status' => 'divalidasi',
-        // ]);
-
         $newData = [
             'info' => "pengajuan-update",
             'data' => [
@@ -160,7 +150,7 @@ class TransaksiController extends Controller
         return back();
     }
 
-    public function destroy_transaksi(Transaksi $transaksi): RedirectResponse
+    public function destroy_realisasi(Transaksi $transaksi): RedirectResponse
     {
         if(Gate::denies('canAkses', $transaksi)) {
             abort(404);

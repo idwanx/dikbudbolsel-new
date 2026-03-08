@@ -45,16 +45,22 @@ export default function RekapRkas() {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                {sekolah?.map((item, index) => (
-                    <TableRow key={index}>
-                        <TableCell className="text-center">{index + 1}</TableCell>
-                        <TableCell className="text-center">{item.npsn}</TableCell>
-                        <TableCell>{item.nama_sekolah}</TableCell>
-                        <TableCell className="text-center">{item.status}</TableCell>
-                        <TableCell className="text-right font-mono">{Number(item.total_belanja_operasi).toLocaleString("id-ID")}</TableCell>
-                        <TableCell className="text-right font-mono">{Number(item.total_belanja_modal).toLocaleString("id-ID")}</TableCell>
+                {sekolah!.length > 0 ? (
+                    sekolah?.map((item, index) => (
+                        <TableRow key={index}>
+                            <TableCell className="text-center">{index + 1}</TableCell>
+                            <TableCell className="text-center">{item.npsn}</TableCell>
+                            <TableCell>{item.nama_sekolah}</TableCell>
+                            <TableCell className="text-center">{item.status}</TableCell>
+                            <TableCell className="text-right font-mono">{Number(item.total_belanja_operasi).toLocaleString("id-ID")}</TableCell>
+                            <TableCell className="text-right font-mono">{Number(item.total_belanja_modal).toLocaleString("id-ID")}</TableCell>
+                        </TableRow>
+                    ))
+                ):(
+                    <TableRow>
+                        <TableCell colSpan={6}>Tidak ada data.</TableCell>
                     </TableRow>
-                ))}
+                )}
                 </TableBody>
             </Table>
         ):(
